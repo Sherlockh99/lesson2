@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
+import com.sherlock.gb.kotlin.lesson2.R
 import com.sherlock.gb.kotlin.lesson2.viewmodel.AppState
 import com.sherlock.gb.kotlin.lesson2.databinding.FragmentMainBinding
+import com.sherlock.gb.kotlin.lesson2.model.Weather
 import com.sherlock.gb.kotlin.lesson2.viewmodel.MainViewModel
 
 class MainFragment : Fragment() {
@@ -76,8 +78,10 @@ class MainFragment : Fragment() {
         val mainView = binding.mainView
         when(appState){
             is AppState.Success->{
+                val weatherData = appState.weatherData
                 loadingLayout.visibility = View.GONE
-                Snackbar.make(mainView,"Sucess", Snackbar.LENGTH_LONG).show()
+                setData(weatherData)
+                //Snackbar.make(mainView,"Sucess", Snackbar.LENGTH_LONG).show()
             }
             is AppState.Loading -> {
                 loadingLayout.visibility = View.VISIBLE
@@ -96,6 +100,16 @@ class MainFragment : Fragment() {
 
     }
 
+    private fun setData(weatherData: Weather){
+        binding.cityName.text = weatherData.city.city
+        binding.cityCoordinates.text = String.format(
+            getString(R.string.city_coordinates),
+            weatherData.city.lat.toString(),
+            weatherData.city.lon.toString()
+        )
+        binding.temperatureValue.text = weatherData.temperature.toString()
+        binding.feelsLikeValue.text = weatherData.feelsLike.toString()
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
