@@ -1,4 +1,4 @@
-package com.sherlock.gb.kotlin.lesson2
+package com.sherlock.gb.kotlin.lesson2.viewmodel
 
 sealed class AppState {
     data class Success(val weatherData: Any) : AppState()

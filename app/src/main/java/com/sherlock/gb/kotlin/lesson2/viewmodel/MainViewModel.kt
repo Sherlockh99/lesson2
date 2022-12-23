@@ -1,9 +1,9 @@
-package com.sherlock.gb.kotlin.lesson2.ui.main
+package com.sherlock.gb.kotlin.lesson2.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.sherlock.gb.kotlin.lesson2.AppState
+import com.sherlock.gb.kotlin.lesson2.viewmodel.AppState
 import java.lang.Thread.sleep
 
 class MainViewModel(

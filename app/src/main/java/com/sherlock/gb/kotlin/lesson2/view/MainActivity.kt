@@ -1,9 +1,9 @@
-package com.sherlock.gb.kotlin.lesson2
+package com.sherlock.gb.kotlin.lesson2.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.sherlock.gb.kotlin.lesson2.R
 import com.sherlock.gb.kotlin.lesson2.databinding.FragmentMainBinding
-import com.sherlock.gb.kotlin.lesson2.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: FragmentMainBinding
@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container,MainFragment.newInstance())
+                .replace(R.id.container, MainFragment.newInstance())
                 .commit()
         }
     }
