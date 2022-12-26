@@ -1,4 +1,4 @@
-package com.sherlock.gb.kotlin.lesson2.view
+package com.sherlock.gb.kotlin.lesson2.view.details
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -14,11 +14,11 @@ import com.sherlock.gb.kotlin.lesson2.databinding.FragmentMainBinding
 import com.sherlock.gb.kotlin.lesson2.model.Weather
 import com.sherlock.gb.kotlin.lesson2.viewmodel.MainViewModel
 
-class MainFragment : Fragment() {
-
+class DetailsFragment : Fragment() {
+/**
     companion object {
         @JvmStatic
-        fun newInstance() = MainFragment()
+        fun newInstance() = DetailsFragment()
         //fun newInstance(param1: String, param2: String) = MainFragment()
     }
 
@@ -64,7 +64,7 @@ class MainFragment : Fragment() {
          * подписываемся на LiveData и запрашиваем данные.
          */
         viewModel.getLiveData().observe(viewLifecycleOwner, Observer{renderData(it)})
-        viewModel.getWeather()
+        //viewModel.getWeather()
     }
 
 
@@ -114,4 +114,5 @@ class MainFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+    */
 }

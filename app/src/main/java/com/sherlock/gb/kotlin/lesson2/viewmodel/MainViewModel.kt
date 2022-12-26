@@ -13,6 +13,7 @@ class MainViewModel(
     private val repositoryImpl: Repository = RepositoryImpl()
 ) : ViewModel() {
 
+
     fun getLiveData() = liveDataToObserve
     fun getWeatherFromLocalSourceRus() = getDataFromLocalSource(isRussian = true)
     fun getWeatherFromLocalSourceWorld() = getDataFromLocalSource(isRussian = false)

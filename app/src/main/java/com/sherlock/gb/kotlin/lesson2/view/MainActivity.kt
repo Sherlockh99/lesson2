@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.sherlock.gb.kotlin.lesson2.R
 import com.sherlock.gb.kotlin.lesson2.databinding.FragmentMainBinding
+import com.sherlock.gb.kotlin.lesson2.view.details.DetailsFragment
+import com.sherlock.gb.kotlin.lesson2.view.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: FragmentMainBinding
