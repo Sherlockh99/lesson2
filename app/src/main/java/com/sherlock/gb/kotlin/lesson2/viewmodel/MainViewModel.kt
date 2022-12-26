@@ -14,11 +14,11 @@ class MainViewModel(
 ) : ViewModel() {
 
     fun getLiveData() = liveDataToObserve
-    fun getWeatherFromLocalSource() = getDataFromLocalSource()
-    fun getWeatherFromRemoteSource() = getDataFromLocalSource()
-    fun getWeather() = getDataFromLocalSource()
+    fun getWeatherFromLocalSourceRus() = getDataFromLocalSource(isRussian = true)
+    fun getWeatherFromLocalSourceWorld() = getDataFromLocalSource(isRussian = false)
+    fun getWeatherFromRemoteSource() = getDataFromLocalSource(isRussian = true)
 
-    private fun getDataFromLocalSource() {
+    private fun getDataFromLocalSource(isRussian: Boolean) {
         liveDataToObserve.value = AppState.Loading
         /**
          * Запрос осуществляется асинхронно в отдельном потоке. Как только
@@ -26,9 +26,10 @@ class MainViewModel(
          * Если данные передаются в основном потоке, используем метод setValue.
          */
         Thread {
-            sleep(2000)
-            liveDataToObserve.postValue(
-                AppState.Success(repositoryImpl.getWeatherFromLocalStorage()))
+            sleep(1000)
+            liveDataToObserve.postValue(AppState.Success(if (isRussian)
+                repositoryImpl.getWeatherFromLocalStorageRus() else
+                repositoryImpl.getWeatherFromLocalStorageWorld()))
         }.start()
     }
 }
